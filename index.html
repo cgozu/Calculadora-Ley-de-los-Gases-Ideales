@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Gases Ideales</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Calculadora de Gases Ideales</h1>
+            <p class="formula">PV = nRT</p>
+            <p class="subtitle">Calcular moles (n) a partir de Presión, Volumen y Temperatura</p>
+        </header>
+
+        <main>
+            <section class="calculator-card">
+                <h2>Datos de Entrada</h2>
+                <form id="calculatorForm">
+                    <div class="input-group">
+                        <label for="pressure">Presión (P)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="pressure" name="pressure" step="any" min="0" required placeholder="Ej: 101325">
+                            <span class="unit">Pa</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="volume">Volumen (V)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="volume" name="volume" step="any" min="0" required placeholder="Ej: 0.0224">
+                            <span class="unit">m³</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="temperature">Temperatura (T)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="temperature" name="temperature" step="any" required placeholder="Ej: 25">
+                            <span class="unit">°C</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-calculate">Calcular Moles</button>
+                </form>
+
+                <div id="error" class="error-message" style="display: none;"></div>
+            </section>
+
+            <section id="resultSection" class="result-card" style="display: none;">
+                <h2>Resultado</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight">
+                        <span class="result-label">Moles (n)</span>
+                        <span id="resultMoles" class="result-value">-</span>
+                        <span class="result-unit">mol</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Temperatura</span>
+                        <span id="resultTempK" class="result-value">-</span>
+                        <span class="result-unit">K</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Presión</span>
+                        <span id="resultPressure" class="result-value">-</span>
+                        <span class="result-unit">Pa</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Volumen</span>
+                        <span id="resultVolume" class="result-value">-</span>
+                        <span class="result-unit">m³</span>
+                    </div>
+                </div>
+                <p class="constant-info">Constante de gases ideales: R = 8.314462618 Pa·m³/mol·K</p>
+            </section>
+
+            <section class="history-card">
+                <div class="history-header">
+                    <h2>Historial de Cálculos</h2>
+                    <button id="clearHistory" class="btn-clear">Limpiar Historial</button>
+                </div>
+                <div id="historyTableWrapper">
+                    <table id="historyTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Presión (Pa)</th>
+                                <th>Volumen (m³)</th>
+                                <th>Temp (°C)</th>
+                                <th>Temp (K)</th>
+                                <th>Moles</th>
+                                <th>Fecha/Hora</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyBody">
+                        </tbody>
+                    </table>
+                </div>
+                <p id="noHistory" class="no-history">No hay cálculos registrados.</p>
+            </section>
+        </main>
+
+        <footer>
+            <p>Ley de Gases Ideales: PV = nRT | R = 8.314462618 Pa·m³/mol·K</p>
+        </footer>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
