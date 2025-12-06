@@ -47,8 +47,3 @@ A web application for calculating moles using the ideal gas law (PV = nRT). User
 - Scientific/educational theme
 - Clean, modern UI with gradient backgrounds
 
-## Running the Project
-The Flask server runs on port 5000 with the command:
-```bash
-python main.py
-```
